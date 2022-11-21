@@ -35,48 +35,56 @@ function whoIsTheWinner() {
     arrWithGameField[2] == 1
   ) {
     winner = "redCross";
+    return;
   } else if (
     arrWithGameField[3] == 1 &&
     arrWithGameField[4] == 1 &&
     arrWithGameField[5] == 1
   ) {
     winner = "redCross";
+    return;
   } else if (
     arrWithGameField[6] == 1 &&
     arrWithGameField[7] == 1 &&
     arrWithGameField[8] == 1
   ) {
     winner = "redCross";
+    return;
   } else if (
     arrWithGameField[0] == 1 &&
     arrWithGameField[3] == 1 &&
     arrWithGameField[6] == 1
   ) {
     winner = "redCross";
+    return;
   } else if (
     arrWithGameField[1] == 1 &&
     arrWithGameField[4] == 1 &&
     arrWithGameField[7] == 1
   ) {
     winner = "redCross";
+    return;
   } else if (
     arrWithGameField[2] == 1 &&
     arrWithGameField[5] == 1 &&
     arrWithGameField[8] == 1
   ) {
     winner = "redCross";
+    return;
   } else if (
     arrWithGameField[0] == 1 &&
     arrWithGameField[4] == 1 &&
     arrWithGameField[8] == 1
   ) {
     winner = "redCross";
+    return;
   } else if (
     arrWithGameField[6] == 1 &&
     arrWithGameField[4] == 1 &&
     arrWithGameField[2] == 1
   ) {
     winner = "redCross";
+    return;
   }
   //
   if (
@@ -84,59 +92,57 @@ function whoIsTheWinner() {
     arrWithGameField[1] == 2 &&
     arrWithGameField[2] == 2
   ) {
-    console.log("1");
     winner = "greenCircle";
+    return;
   } else if (
     arrWithGameField[3] == 2 &&
     arrWithGameField[4] == 2 &&
     arrWithGameField[5] == 2
   ) {
-    console.log(arrWithGameField);
-    console.log("2");
-
     winner = "greenCircle";
+    return;
   } else if (
     arrWithGameField[6] == 2 &&
     arrWithGameField[7] == 2 &&
     arrWithGameField[8] == 2
   ) {
-    console.log("3");
     winner = "greenCircle";
+    return;
   } else if (
     arrWithGameField[0] == 2 &&
     arrWithGameField[3] == 2 &&
     arrWithGameField[6] == 2
   ) {
-    console.log("4");
     winner = "greenCircle";
+    return;
   } else if (
     arrWithGameField[1] == 2 &&
     arrWithGameField[4] == 2 &&
     arrWithGameField[7] == 2
   ) {
-    console.log("5");
     winner = "greenCircle";
+    return;
   } else if (
     arrWithGameField[2] == 2 &&
     arrWithGameField[5] == 2 &&
     arrWithGameField[8] == 2
   ) {
-    console.log("6");
     winner = "greenCircle";
+    return;
   } else if (
     arrWithGameField[0] == 2 &&
     arrWithGameField[4] == 2 &&
     arrWithGameField[8] == 2
   ) {
-    console.log("7");
     winner = "greenCircle";
+    return;
   } else if (
     arrWithGameField[6] == 2 &&
     arrWithGameField[4] == 2 &&
     arrWithGameField[2] == 2
   ) {
-    console.log("8");
     winner = "greenCircle";
+    return;
   }
   return winner;
 }
@@ -173,10 +179,13 @@ function redCrossMove(clickPlace) {
     let winner = whoIsTheWinner();
     if (winner == "redCross") {
       showWinner(winner);
+      return;
     } else if (winner == "greenCircle") {
       showWinner(winner);
+      return;
     } else if (numberOfTheNextMove == 8) {
       showWinner("draw");
+      return;
     }
   }
 }
