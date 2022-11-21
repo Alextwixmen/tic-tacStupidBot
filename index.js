@@ -35,56 +35,48 @@ function whoIsTheWinner() {
     arrWithGameField[2] == 1
   ) {
     winner = "redCross";
-    return;
   } else if (
     arrWithGameField[3] == 1 &&
     arrWithGameField[4] == 1 &&
     arrWithGameField[5] == 1
   ) {
     winner = "redCross";
-    return;
   } else if (
     arrWithGameField[6] == 1 &&
     arrWithGameField[7] == 1 &&
     arrWithGameField[8] == 1
   ) {
     winner = "redCross";
-    return;
   } else if (
     arrWithGameField[0] == 1 &&
     arrWithGameField[3] == 1 &&
     arrWithGameField[6] == 1
   ) {
     winner = "redCross";
-    return;
   } else if (
     arrWithGameField[1] == 1 &&
     arrWithGameField[4] == 1 &&
     arrWithGameField[7] == 1
   ) {
     winner = "redCross";
-    return;
   } else if (
     arrWithGameField[2] == 1 &&
     arrWithGameField[5] == 1 &&
     arrWithGameField[8] == 1
   ) {
     winner = "redCross";
-    return;
   } else if (
     arrWithGameField[0] == 1 &&
     arrWithGameField[4] == 1 &&
     arrWithGameField[8] == 1
   ) {
     winner = "redCross";
-    return;
   } else if (
     arrWithGameField[6] == 1 &&
     arrWithGameField[4] == 1 &&
     arrWithGameField[2] == 1
   ) {
     winner = "redCross";
-    return;
   }
   //
   if (
@@ -93,56 +85,48 @@ function whoIsTheWinner() {
     arrWithGameField[2] == 2
   ) {
     winner = "greenCircle";
-    return;
   } else if (
     arrWithGameField[3] == 2 &&
     arrWithGameField[4] == 2 &&
     arrWithGameField[5] == 2
   ) {
     winner = "greenCircle";
-    return;
   } else if (
     arrWithGameField[6] == 2 &&
     arrWithGameField[7] == 2 &&
     arrWithGameField[8] == 2
   ) {
     winner = "greenCircle";
-    return;
   } else if (
     arrWithGameField[0] == 2 &&
     arrWithGameField[3] == 2 &&
     arrWithGameField[6] == 2
   ) {
     winner = "greenCircle";
-    return;
   } else if (
     arrWithGameField[1] == 2 &&
     arrWithGameField[4] == 2 &&
     arrWithGameField[7] == 2
   ) {
     winner = "greenCircle";
-    return;
   } else if (
     arrWithGameField[2] == 2 &&
     arrWithGameField[5] == 2 &&
     arrWithGameField[8] == 2
   ) {
     winner = "greenCircle";
-    return;
   } else if (
     arrWithGameField[0] == 2 &&
     arrWithGameField[4] == 2 &&
     arrWithGameField[8] == 2
   ) {
     winner = "greenCircle";
-    return;
   } else if (
     arrWithGameField[6] == 2 &&
     arrWithGameField[4] == 2 &&
     arrWithGameField[2] == 2
   ) {
     winner = "greenCircle";
-    return;
   }
   return winner;
 }
