@@ -1,0 +1,127 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* body{
+    width: 100%;
+    min-height: 100vh;
+} */
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+.GameField{
+    width: 598px;
+    height: 598px;
+    margin: 0 auto;
+    border: 2px solid black;
+    display: flex;
+    flex-wrap: wrap;
+}
+.gameСell{
+    width: 198px;
+    height: 198px;
+    border-left: 1px solid red;
+    border-bottom: 1px solid red;
+}
+.gameСell7, .gameСell8, .gameСell9 {
+    border-bottom: none
+}
+.gameСell0, .gameСell3, .gameСell6{
+    border-left: none;
+}
+.gameСell6{
+    border-bottom: none;
+}
+.firstCross{
+    width: 180px;
+    height: 180px;
+}
+.gameСell{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.buttonText{
+    font-size: 30px;
+}
+.newGameButton{
+    width: 250px;
+    height: 70x;
+    border: 0;
+        line-height: 2.5;
+        padding: 0 20px;
+        font-size: 1rem;
+        text-align: center;
+        color: #fff;
+        text-shadow: 1px 1px 1px #000;
+        border-radius: 10px;
+        background-color: rgba(220, 0, 0, 1);
+        background-image: linear-gradient(to top left,
+                rgba(0, 0, 0, .2),
+                rgba(0, 0, 0, .2) 30%,
+                rgba(0, 0, 0, 0));
+        box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+            inset -2px -2px 3px rgba(0, 0, 0, .6);
+           /* position: absolute; */
+           top: 0;
+           left: 0;
+         
+}
+.newGameButton:hover {
+    background-color: rgba(255, 0, 0, 1);
+}
+.newGameButton:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+        inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+.winnerText{
+position: absolute;
+top: 50px;
+font-size: 50px;
+color: rebeccapurple;
+font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+.PopUpContent{
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    height: 500px;
+    border: 3px solid black;
+    background-color: black;
+    border-radius: 50px;
+    visibility: visible;
+}
+.winnerWindow{
+    transition: 0.5s;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+.popUp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+.hidden{
+    visibility: hidden;
+}   
+
