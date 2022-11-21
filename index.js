@@ -149,7 +149,9 @@ function whoIsTheNext() {
   return number;
 }
 // тут есть баг, поэтому лучше всего вешать листнера не на все поле, а на каждую отдельную клетку. Но пока я это не фиксил.
-gameField.addEventListener("click", (clickPlace) => {
+gameField.addEventListener("click", (clickPlace) => redCrossMove(clickPlace));
+//функция, которая обрататывает наши ходи на крестике
+function redCrossMove(clickPlace) {
   let redCross = document.createElement("img");
   redCross.src = "assets/img/cross.png";
   redCross.style.height = "270px";
@@ -177,7 +179,7 @@ gameField.addEventListener("click", (clickPlace) => {
       showWinner("draw");
     }
   }
-});
+}
 function showWinner(winner) {
   popUp.classList.toggle("hidden");
   winnerWindow.classList.add("winnerWindow");
@@ -193,14 +195,7 @@ newGameButton.addEventListener("click", () => {
   window.location.reload();
 });
 function smartComputer(placeOfClick, isFirst) {
-  function FuncForRandomMove() {
-    //функция на определение того, кто будет делать следующий ход.
-    let number = 0;
-    arrWithGameField.forEach((element) => {
-      number += element.length;
-    });
-    return number;
-  }
+  console.log("smartComputer is working");
   const objWhitVariants = {
     01: 2,
     12: 0,
@@ -228,7 +223,14 @@ function smartComputer(placeOfClick, isFirst) {
     08: 4,
     62: 4,
   };
-  console.log("smartComputer is working");
+  function FuncForRandomMove() {
+    //эта функция нужна только для того, чтоб узнать последний ход на поле
+    let number = 0;
+    arrWithGameField.forEach((element) => {
+      number += element.length;
+    });
+    return number;
+  }
   //проверка на то, что это первый ход крестика и крестик был поставлен именно в центр. В таком случае нужно запустить функцию, которая поставит нулик в один из четырех углов нашего поля.
   //0, 2, 6, 8
   if (isFirst && placeOfClick === "4") {
@@ -238,21 +240,20 @@ function smartComputer(placeOfClick, isFirst) {
     }
     makeMove(getRandomArrayElement(cellsIfCrossInCenter)); //запускаем функцию с рандомным числом из количества углов поля, которая поставит на это рандомное место зеленый нулик.
   } else if (isFirst) {
-    //если это все еще первый ход, но противник поставил крестик не в центр поля;
-    let randomPlaceForCircle = randomInteger(0, 8); // определяем рандомное место для нулика
-    if (isPlaceFree(randomPlaceForCircle)) {
-      //проверяем не совпадает ли рандомное место с тем местом, куда был поставлен крестик
-      makeMove(randomPlaceForCircle); //если все ок - ставим нулик на рандомное место
-    } else {
-      smartComputer("-", true); //иначе опять запускаем smartComputer()
-    }
+    //если это все еще первый ход, но противник поставил крестик не в центр поля, то мы сами занимаем центр.
+    makeMove(4);
   } else {
     console.log("Это второй и последующие ходы крестика");
-    accumulateInfo();
+    if (checkTheCrossPosition(2) != undefined) {
+      console.log("щас запушу функцию на определение победной позиции");
+      makeMove(checkTheCrossPosition(2));
+    } else {
+      accumulateInfo();
+    }
   }
   function accumulateInfo() {
     console.log("внутри функции accumulateInfo");
-    let numberForCircle = checkTheCrossPosition();
+    let numberForCircle = checkTheCrossPosition(1);
     console.log(
       "checkTheCrossPosition вернула",
       typeof numberForCircle,
@@ -278,14 +279,14 @@ function smartComputer(placeOfClick, isFirst) {
       makeRandomMove();
     }
   }
-  function checkTheCrossPosition() {
+  function checkTheCrossPosition(typeOfPicture) {
     for (key in objWhitVariants) {
       if (key.length == 1) {
         let superKey = "0" + key;
         // superKey - string
         if (
-          arrWithGameField[superKey[0]] == 1 &&
-          arrWithGameField[superKey[1]] == 1
+          arrWithGameField[superKey[0]] == typeOfPicture &&
+          arrWithGameField[superKey[1]] == typeOfPicture
         ) {
           if (isPlaceFree(objWhitVariants[key])) {
             return objWhitVariants[key];
@@ -294,7 +295,10 @@ function smartComputer(placeOfClick, isFirst) {
           }
         }
       } else {
-        if (arrWithGameField[key[0]] == 1 && arrWithGameField[key[1]] == 1) {
+        if (
+          arrWithGameField[key[0]] == typeOfPicture &&
+          arrWithGameField[key[1]] == typeOfPicture
+        ) {
           if (isPlaceFree(objWhitVariants[key])) {
             return objWhitVariants[key];
           } else {
